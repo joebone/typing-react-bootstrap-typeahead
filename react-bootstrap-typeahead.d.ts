@@ -1,7 +1,7 @@
 
 
 declare module 'react-bootstrap-typeahead' {
-    import { HTMLProps, Component } from 'react';
+    import { Component, ClassAttributes } from 'react';
 
     // Custom made typings based on exampes: https://github.com/ericgio/react-bootstrap-typeahead
     // Extended based on documentation at :https://github.com/ericgio/react-bootstrap-typeahead/blob/master/docs/Props.md
@@ -13,13 +13,15 @@ declare module 'react-bootstrap-typeahead' {
         value?: string;
     }
 
-    export interface ReactBootstrapTypeaheadProps extends HTMLProps<Typeahead> {
+    //HTMLProps<Typeahead>
+    // can't extend HTMLProps, because of the "selected" property
+    export interface ReactBootstrapTypeaheadProps extends ClassAttributes<Typeahead>  {
         align?: "justify"|"left"|"right";
         allowNew?: boolean;
         bsSize?:"large"|"lg"|"small"|"sm";
         caseSenstive?:boolean;
         defaultSelected?: any[];
-        //disabled?:boolean; // defined on React.HtmlProps
+        disabled?:boolean; // defined on React.HtmlProps
         dropup?: boolean;
         emptyLabel?: string;
         // filtering
@@ -37,9 +39,9 @@ declare module 'react-bootstrap-typeahead' {
 
         //Provides the ability to specify a prefix before the user-entered text to indicate that the selection will be new. No-op unless allowNew={true}.
         newSelectionPrefix?: string;
-        ///onBlur?():any;   // defaults
-        ///onChange?():any; // defaults
-        ///onFocus?():any;  // defaults
+        onBlur?():any;   // defaults
+        onChange?():any; // defaults
+        onFocus?():any;  // defaults
         onInputChange?: (textvalue:string) => any;
 
         options: string[] | DataItem[] | any[];
