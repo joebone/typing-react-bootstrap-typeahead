@@ -1,0 +1,7 @@
+{
+  "name": "react-bootstrap-typeahead",
+  "main": "react-bootstrap-typeahead.d.ts",
+  "dependencies": {
+    "react": "github:typed-typings/npm-ms#42692d400db3c333394ec75bce9f6d09b5a0a769"
+  }
+}
